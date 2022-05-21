@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Property;
 use App\REO\Utils\Constants;
+use App\REO\Utils\Generators;
 
 class PropertyFactory extends Factory
 {
@@ -26,15 +27,15 @@ class PropertyFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'address' => $this->faker->address(),
-            'property_type' => "sfsdflasdjfsdf-dfsfsdfsdf-sdfsfsf-sdfsdf",
+            'property_type' => strtolower(Generators::generateRandomUniqHash()),
             'fields' =>  json_encode([
-                Constants::DEFAULT_PROPERTY_FIELDS[0] => $this->faker->numberBetween(100,999),
-                Constants::DEFAULT_PROPERTY_FIELDS[1] => $this->faker->numberBetween(1999,2022),
-                Constants::DEFAULT_PROPERTY_FIELDS[2] => $this->faker->numberBetween(1,20),
+                Constants::DEFAULT_PROPERTY_FIELDS[0] => $this->faker->numberBetween(100, 1000),
+                Constants::DEFAULT_PROPERTY_FIELDS[1] => $this->faker->numberBetween(2000, 2022),
+                Constants::DEFAULT_PROPERTY_FIELDS[2] => $this->faker->numberBetween(1, 10),
                 Constants::DEFAULT_PROPERTY_FIELDS[3] => $this->faker->randomElement(Constants::DEFAULT_HEATING_TYPES),
                 Constants::DEFAULT_PROPERTY_FIELDS[4] => $this->faker->randomElement(Constants::DEFAULT_PARKINGS),
-                Constants::DEFAULT_PROPERTY_FIELDS[5] => $this->faker->randomFloat(1,10.5, 99.9),
-                Constants::DEFAULT_PROPERTY_FIELDS[6] => $this->faker->numberBetween(1000,9999),   
+                Constants::DEFAULT_PROPERTY_FIELDS[5] => $this->faker->randomFloat(1, 20.5, 100),
+                Constants::DEFAULT_PROPERTY_FIELDS[6] => $this->faker->numberBetween(10000, 100000),   
             ])
         ];
     }
