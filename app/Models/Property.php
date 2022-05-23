@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     use HasFactory;
+
+    public function getFieldsAttribute($field)
+    {
+        return json_decode($field, true);
+    }
 }

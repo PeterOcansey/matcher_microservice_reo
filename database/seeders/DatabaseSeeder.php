@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         //Add 5 properties with 2 associated search profile records each
         Property::factory()->count(5)->create()->each(function($property){
-                    SearchProfile::factory()->count(2)->create([
+                    SearchProfile::factory()->count(20)->create([
                             'property_type' => $property->property_type,
                     ]);
                 });

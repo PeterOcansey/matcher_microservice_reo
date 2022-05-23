@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PropertyMatchingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('match/{property}', [PropertyMatchingController::class,'getSearchProfileMatches']);
+Route::get('match/{property}', [PropertyMatchingController::class, 'getSearchProfileMatches']);
