@@ -81,7 +81,8 @@ class MatcherActivity
             }
 
             // Record the compute matches for the search profile, score should be the total strict_count + total loose count
-            if($strict_count > 0 || $loose_count > 0){
+            if($strict_count > 0 || $loose_count > 0)
+            {
                 array_push($response_data, [
                     'searchProfileId' => $search_profile->id,
                     'score' => ($strict_count + $loose_count), 
